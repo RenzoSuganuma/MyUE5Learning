@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/ArrowComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "CPPComponent.generated.h"
 
 UCLASS()
@@ -20,6 +22,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UStaticMeshComponent> StaticMesh;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UArrowComponent> Arrow;
 
 protected:
 	// Called when the game starts or when spawned

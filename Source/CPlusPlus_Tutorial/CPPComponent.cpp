@@ -2,8 +2,6 @@
 
 
 #include "CPPComponent.h"
-#include "Kismet/KismetSystemLibrary.h"
-#include "Components/ArrowComponent.h"
 
 // Sets default values
 ACPPComponent::ACPPComponent()
@@ -21,8 +19,6 @@ ACPPComponent::ACPPComponent()
 	StaticMesh->SetStaticMesh(mesh);
 
 	StaticMesh->SetupAttachment(RootComponent);
-
-	UArrowComponent* Arrow;
 
 	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("ArrowComponent"));
 
