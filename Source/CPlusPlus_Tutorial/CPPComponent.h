@@ -19,7 +19,7 @@ public:
 	TObjectPtr<USceneComponent> DefaultSceneRoot;
 
 	UPROPERTY(EditAnywhere)
-	TObjectPtr<UStaticMeshComponent> sMesh;
+	TObjectPtr<UStaticMeshComponent> StaticMesh;
 
 protected:
 	// Called when the game starts or when spawned

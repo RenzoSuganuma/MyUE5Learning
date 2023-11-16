@@ -3,6 +3,7 @@
 
 #include "CPPComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Components/ArrowComponent.h"
 
 // Sets default values
 ACPPComponent::ACPPComponent()
@@ -14,12 +15,20 @@ ACPPComponent::ACPPComponent()
 
 	RootComponent = DefaultSceneRoot;
 
-	sMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
+	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 
 	UStaticMesh* mesh = LoadObject<UStaticMesh>(NULL, TEXT("/Game/LevelPrototyping/Meshes/SM_Cube"), NULL, LOAD_None, NULL);
-	sMesh->SetStaticMesh(mesh);
+	StaticMesh->SetStaticMesh(mesh);
 
-	sMesh->SetupAttachment(RootComponent);
+	StaticMesh->SetupAttachment(RootComponent);
+
+	UArrowComponent* Arrow;
+
+	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("ArrowComponent"));
+
+	Arrow->SetRelativeLocation(FVector(50.0f, 0.0f, 0.0f));
+
+	Arrow->SetupAttachment(StaticMesh);
 }
 
 // Called when the game starts or when spawned
