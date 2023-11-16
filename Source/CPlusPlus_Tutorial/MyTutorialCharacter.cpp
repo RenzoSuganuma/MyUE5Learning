@@ -16,6 +16,9 @@ void AMyTutorialCharacter::BeginPlay()
 void AMyTutorialCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	// Output Count every Frame
+	iCount++;
+	OutputLog(FString::FormatAsNumber(iCount));
 }
 // Called to bind functionality to input
 void AMyTutorialCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
