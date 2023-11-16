@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "MyTutorialCharacter.h"
+#include "Kismet/KismetSystemLibrary.h"
 // Sets default values
 AMyTutorialCharacter::AMyTutorialCharacter()
 {
@@ -27,4 +28,9 @@ void AMyTutorialCharacter::SpawnMyActor()
 	spawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
 	GetWorld()->SpawnActor<AActor>(myactorBPToSpawn, spawnPos, spawnParams);
+}
+
+void AMyTutorialCharacter::OutputLog(FString sMessage)
+{
+	UKismetSystemLibrary::PrintString(this, sMessage, 1, 0, FColor::Black, 2.f, TEXT("None"));
 }

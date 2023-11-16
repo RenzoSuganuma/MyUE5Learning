@@ -13,9 +13,12 @@ class CPLUSPLUS_TUTORIAL_API AMyTutorialCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMyTutorialCharacter();
-	// アクターをスポーンさせる
+	// Spawn My Actor
 	UFUNCTION(BlueprintCallable, Category = "Abilities")
 	void SpawnMyActor();
+	// OutPut Log ToDisplay
+	UFUNCTION(BlueprintCallable , Category = "Debug_Log")
+	void OutputLog(FString sMessage);
 	// 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> myactorBPToSpawn;
