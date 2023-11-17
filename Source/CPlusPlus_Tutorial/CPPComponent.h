@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/ArrowComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Components/PointLightComponent.h"
 #include "CPPComponent.generated.h"
 
 UCLASS()
@@ -25,6 +26,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UArrowComponent> Arrow;
+
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<UPointLightComponent> PointLight;
 
 protected:
 	// Called when the game starts or when spawned

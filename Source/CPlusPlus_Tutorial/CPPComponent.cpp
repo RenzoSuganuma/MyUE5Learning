@@ -3,6 +3,7 @@
 
 #include "CPPComponent.h"
 
+
 // Sets default values
 ACPPComponent::ACPPComponent()
 {
@@ -25,6 +26,12 @@ ACPPComponent::ACPPComponent()
 	Arrow->SetRelativeLocation(FVector(50.0f, 0.0f, 0.0f));
 
 	Arrow->SetupAttachment(StaticMesh);
+
+	PointLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLightComponent"));
+
+	PointLight->SetRelativeLocation(FVector(130.f, 0.f, 0.f));
+
+	PointLight->SetupAttachment(StaticMesh);
 }
 
 // Called when the game starts or when spawned
