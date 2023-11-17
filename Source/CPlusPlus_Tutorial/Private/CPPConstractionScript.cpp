@@ -61,4 +61,8 @@ void ACPPConstractionScript::Tick(float DeltaTime)
 void ACPPConstractionScript::OnConstruction(const FTransform& Transform)
 {
 	PointLight->SetVisibility(bIsVisible);
+
+	PointLight->SetIntensity(fItensity);
+
+	PointLight->SetLightColor(LightColor);
 }
