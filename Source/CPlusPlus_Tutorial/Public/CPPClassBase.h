@@ -20,7 +20,13 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditAnyWhere)
+	TObjectPtr<USceneComponent> DefaultSceneRoot;
 
+	UPROPERTY(EditAnyWhere)
+	TObjectPtr<UStaticMeshComponent> StaticMesh;
+
+	void CallParentFunc();
+
+	int VarParentNum = 10;
 };

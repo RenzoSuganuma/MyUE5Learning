@@ -2,13 +2,21 @@
 
 
 #include "CPPClassBase.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 // Sets default values
 ACPPClassBase::ACPPClassBase()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	DefaultSceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
 
+	RootComponent = DefaultSceneRoot;
+
+	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
+
+	UStaticMesh* Mesh = LoadObject<UStaticMesh>(NULL, TEXT("/Game/LevelPrototyping/Meshes/SM_Cube"), NULL, LOAD_None, NULL);
+	StaticMesh->SetStaticMesh(Mesh);
+
+	StaticMesh->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -16,12 +24,13 @@ void ACPPClassBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	CallParentFunc();
 }
 
-// Called every frame
-void ACPPClassBase::Tick(float DeltaTime)
+void ACPPClassBase::CallParentFunc() 
 {
-	Super::Tick(DeltaTime);
+	FString name = UKismetSystemLibrary::GetDisplayName(this);
 
+	UKismetSystemLibrary::PrintString(this, FString::Printf(TEXT("%s : CallParentFunc %d"), *name, VarParentNum), true, true, FColor::Cyan, 10.f, TEXT("None"));
 }
 
