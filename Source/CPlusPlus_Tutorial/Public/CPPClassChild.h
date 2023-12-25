@@ -15,5 +15,13 @@ class CPLUSPLUS_TUTORIAL_API ACPPClassChild : public ACPPClassBase
 	GENERATED_BODY()
 	
 public:
-	
+	ACPPClassChild();
+
+protected:
+	virtual void BeginPlay() override;
+
+public:
+	void CallChildFunc();
+
+	int VarChildNum = 100;
 };

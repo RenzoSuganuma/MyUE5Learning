@@ -13,7 +13,7 @@ ACPPClassBase::ACPPClassBase()
 
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 
-	UStaticMesh* Mesh = LoadObject<UStaticMesh>(NULL, TEXT("/Game/LevelPrototyping/Meshes/SM_Cube"), NULL, LOAD_None, NULL);
+	UStaticMesh* Mesh = LoadObject<UStaticMesh>(NULL, TEXT("/Engine/BasicShapes/Cone"), NULL, LOAD_None, NULL);
 	StaticMesh->SetStaticMesh(Mesh);
 
 	StaticMesh->SetupAttachment(RootComponent);
