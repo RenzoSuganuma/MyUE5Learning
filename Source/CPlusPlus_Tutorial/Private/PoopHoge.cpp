@@ -14,14 +14,14 @@ APoopHoge::APoopHoge()
 
 void APoopHoge::SayHoge()
 {
-	UKismetSystemLibrary::PrintString(this, TEXT("HogeHoge FUcking Unreal"), true, true, FColor::Emerald, 1.f, "NONE");
+	UKismetSystemLibrary::PrintString(this, TEXT("Hoge Hoge UE5"), true, true, FColor::Emerald, 1.f, "NONE");
 }
 
 // Called when the game starts or when spawned
 void APoopHoge::BeginPlay()
 {
-	Super::BeginPlay();
-	
+	// Super::BeginPlay();
+	SayHoge();
 }
 
 // Called every frame
